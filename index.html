@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Finance App</title>
+</head>
+<body>
+  <h1>💰 Smart Finance Tracker</h1>
+
+  <h3>Add Transaction</h3>
+  <input id="desc" placeholder="Description">
+  <input id="amount" placeholder="Amount" type="number">
+  <button onclick="addTransaction()">Add</button>
+
+  <h3>Transactions:</h3>
+  <ul id="list"></ul>
+
+  <h2 id="balance">Balance: ₹0</h2>
+
+  <script>
+    let balance = 0;
+
+    function addTransaction() {
+      let desc = document.getElementById("desc").value;
+      let amount = parseInt(document.getElementById("amount").value);
+
+      if (!desc || !amount) return;
+
+      balance += amount;
+
+      let li = document.createElement("li");
+      li.innerText = desc + ": ₹" + amount;
+      document.getElementById("list").appendChild(li);
+
+      document.getElementById("balance").innerText = "Balance: ₹" + balance;
+    }
+  </script>
+</body>
+</html>
